@@ -1,0 +1,22 @@
+{
+  "name": "github-repo-analyzer",
+  "version": "1.0.0",
+  "description": "A simple CLI tool to analyze any GitHub repository with beautiful terminal charts, language stats",
+  "main": "analyze.js",
+  "bin": "analyze.js",
+  "scripts": {
+    "start": "node analyze.js",
+    "build": "pkg ."
+  },
+  "dependencies": {
+    "axios": "^1.6.8",
+    "boxen": "^5.1.2",
+    "chalk": "^4.1.2",
+    "cli-table3": "^0.6.3",
+    "gradient-string": "^2.0.2",
+    "ora": "^5.4.1"
+  },
+  "devDependencies": {
+    "pkg": "^5.8.1"
+  }
+}

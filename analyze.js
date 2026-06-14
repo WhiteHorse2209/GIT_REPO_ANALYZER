@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 const axios = require("axios");
-const chalk = require("chalk").default;
-const ora = require("ora").default;
-const boxen = require("boxen").default;
+const chalk = require("chalk");
+const ora = require("ora");
+const boxen = require("boxen");
 const Table = require("cli-table3");
 const gradient = require("gradient-string");
 
