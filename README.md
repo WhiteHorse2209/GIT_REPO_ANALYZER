@@ -1,37 +1,79 @@
-# 🛠️ GitHub Repo Analyzer
+# 🧠 Enterprise GitHub Intelligence Platform (Repo-Analyzer)
 
-A simple CLI tool to analyze any GitHub repository with beautiful terminal charts, language stats, and repo details in a clean, colorful dashboard.
+An advanced, AI-powered CLI tool designed to perform deep, interactive analysis of any public GitHub repository. This platform ingests source code and repository metadata to give you real-time insights, automatic architecture diagrams, code reviews, and impact analysis right from your terminal.
 
 ## ✨ Features
 
-- **Quick Stats:** View stars, forks, watchers, open issues, and more.
-- **Language Chart:** Automatically generates a percentage breakdown of programming languages used in the repository.
-- **Beautiful UI:** Uses gradients, boxed tables, and spinners for a modern terminal experience.
-- **No Setup Required:** Comes as a single executable file you can run directly from your Command Prompt!
+- **📊 Comprehensive Repo Metadata:** Instantly fetch repository statistics including stargazers, open issues, language distributions, top contributors, recent commits, and releases.
+- **💬 Interactive AI Chat:** Ask questions directly about the repository's codebase. The AI ingests the source code and metadata (last 100 commits, issues, contributors) to provide highly contextual answers.
+- **🏗️ Architecture Generation:** Type `arch` to automatically generate a Mermaid.js high-level architecture diagram based on the repository's source code.
+- **🕵️ Automated Code Review:** Type `review` to perform an expert-level code review, identifying security flaws, performance bottlenecks, and bad practices.
+- **⚡ Impact Analysis:** Type `impact` to perform a "what-if" impact analysis. Describe a change you plan to make, and the AI will warn you about affected files, potential bugs, and merge conflict risks.
+- **🔄 Auto-Retry on High Demand:** Built-in intelligence to gracefully handle AI API rate limits and high demand periods.
 
-## 📥 Download & Usage
+## 📥 Installation
 
-1. **Download the tool:**
-   Download the `github-repo-analyzer-win.exe` file from this repository (once released).
-   
-2. **Open Command Prompt:**
-   Press `Windows Key + R`, type `cmd`, and press Enter.
+You can easily run this tool locally on your computer.
 
-3. **Run the tool:**
-   Navigate to the folder where you downloaded the file, and run it by providing the `owner/repo` format of the GitHub repository you want to analyze.
-
-   ```cmd
-   github-repo-analyzer-win.exe <owner>/<repo>
+1. **Clone the repository:**
+   ```bash
+   git clone <your-github-repo-link>
+   cd github-repo-analyzer
    ```
 
-**Example:**
-```cmd
-github-repo-analyzer-win.exe facebook/react
+2. **Install dependencies:**
+   Make sure you have [Node.js](https://nodejs.org/) installed, then run:
+   ```bash
+   npm install
+   ```
+
+3. **(Optional) Set up your API Key:**
+   To use the AI features, you need a free Google Gemini API key. 
+   - Get your key from [Google AI Studio](https://aistudio.google.com/).
+   - Set it as an environment variable (or the tool will simply ask you for it when you run it!):
+     - **Windows (Command Prompt):** `set GEMINI_API_KEY=your_key_here`
+     - **Windows (PowerShell):** `$env:GEMINI_API_KEY="your_key_here"`
+     - **Mac/Linux:** `export GEMINI_API_KEY="your_key_here"`
+
+## 🚀 Usage
+
+Run the tool from your terminal:
+
+```bash
+node analyze.js <owner>/<repo>
 ```
 
-### ⚠️ Rate Limits
-If you encounter a `403 API rate limit exceeded` error, this is because GitHub limits unauthenticated requests to 60 per hour. 
+**Example:**
+```bash
+node analyze.js mrdoob/three.js
+```
+*You can also just run `node analyze.js` and the interactive prompt will ask you for a repository link!*
+
+## 🤖 AI Commands
+
+Once the AI ingests the repository, you can type the following commands into the prompt:
+
+- `arch` : Generate an architecture diagram (Mermaid.js).
+- `review` : Perform a full codebase code review.
+- `impact` : Analyze the impact of a planned code change (checks for errors and merge conflicts).
+- `<any question>` : Simply ask a question about how the code works!
+- `exit` : Return to the main menu.
 
 ---
 
-*Note: If you want to run it from source using Node.js instead of the pre-packaged executable, clone the repo, run `npm install`, and use `node analyze.js <owner>/<repo>`.*
+## ⚡ Quick Start (Run instantly!)
+
+If you just want to run the tool without downloading the source code, you can use `npx` (comes pre-installed with Node.js) to download and execute it in one command:
+
+```bash
+npx github-repo-analyzer
+```
+
+*(You can also pass the repo directly: `npx github-repo-analyzer mrdoob/three.js`)*
+
+Alternatively, install it globally on your machine so you can use it anywhere:
+
+```bash
+npm install -g github-repo-analyzer
+github-repo-analyzer
+```
